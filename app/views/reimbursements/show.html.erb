@@ -1,0 +1,6 @@
+<h1>Reimbursement Details</h1>
+<p><strong>Purpose:</strong> <%= @reimbursement.purpose %></p>
+<p><strong>Amount:</strong> <%= @reimbursement.amount %></p>
+<p><strong>Date of Expenditure:</strong> <%= @reimbursement.date_of_expenditure %></p>
+
+<%= link_to 'Back to Employee', company_employee_path(@company, @employee) %>

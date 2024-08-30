@@ -16,10 +16,10 @@
         <li><%= link_to 'Home', root_path %></li>
         <li><%= link_to 'Companies', companies_path %></li>
         <li><%= link_to 'New Company', new_company_path %></li>
-        <li><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
+        <%= button_to "Sign out", destroy_user_session_path, method: :delete %> 
       <% else %>
-        <li><%= link_to 'Login', new_user_session_path %></li>
-        <li><%= link_to 'Sign Up', new_user_registration_path %></li>
+        <%= link_to "Sign in", new_user_session_path %>
+        <%= link_to 'Sign Up', new_user_registration_path %>
       <% end %>
     </ul>
   </nav>

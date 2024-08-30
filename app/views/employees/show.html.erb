@@ -1,0 +1,11 @@
+<h1><%= @employee.name %></h1>
+<h2>Reimbursement Claims</h2>
+<%= link_to 'Submit Reimbursement Claim', new_company_employee_reimbursement_path(@company, @employee) %>
+<ul>
+  <% @employee.reimbursements.each do |reimbursement| %>
+    <li>
+      <%= link_to reimbursement.purpose, company_employee_reimbursement_path(@company, @employee, reimbursement) %>
+      - <%= reimbursement.amount %> (on <%= reimbursement.date_of_expenditure %>)
+    </li>
+  <% end %>
+</ul>
