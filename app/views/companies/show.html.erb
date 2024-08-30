@@ -1,0 +1,13 @@
+<h1><%= @company.name %></h1>
+<p>Employees: <%= @company.employee_count %></p>
+<p>Reimbursement Total: <%= @company.reimbursement_sum %></p>
+
+<h2>Employees</h2>
+<%= link_to 'Add Employee', new_company_employee_path(@company) %>
+<ul>
+  <% @company.employees.each do |employee| %>
+    <li>
+      <%= link_to employee.name, company_employee_path(@company, employee) %>
+    </li>
+  <% end %>
+</ul>
