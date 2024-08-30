@@ -12,6 +12,7 @@ class EmployeesController < ApplicationController
 
   def create
     @employee = @company.employees.new(employee_params)
+    @company.increment!(:employee_count)
     if @employee.save
       redirect_to company_path(@company), notice: 'Employee created successfully.'
     else

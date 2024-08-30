@@ -8,6 +8,7 @@ class Company < ApplicationRecord
   private
 
   def update_employee_count
+    byebug
     self.employee_count = employees.size
   end
 
