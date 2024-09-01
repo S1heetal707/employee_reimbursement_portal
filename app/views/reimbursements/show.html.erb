@@ -1,6 +1,24 @@
-<h1>Reimbursement Details</h1>
-<p><strong>Purpose:</strong> <%= @reimbursement.purpose %></p>
-<p><strong>Amount:</strong> <%= @reimbursement.amount %></p>
-<p><strong>Date of Expenditure:</strong> <%= @reimbursement.date_of_expenditure %></p>
+<div class="container mt-4">
+  <h3 class="mb-4">Reimbursement Details</h3>
+  
+  <div class="table-responsive">
+    <table class="table table-bordered table-striped">
+      <thead class="thead-dark">
+        <tr>
+          <th>Reimbursement Purpose</th>
+          <th>Reimbursement Amount</th>
+          <th>Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><%= @reimbursement.purpose %></td>
+          <td><%= @reimbursement.amount %></td>
+          <td><%= @reimbursement.date_of_expenditure %></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 
-<%= link_to 'Back to Employee', company_employee_path(@company, @employee) %>
+  <%= link_to 'Back to Employee', company_employee_path(@company, @employee), class: 'btn btn-secondary mt-3' %>
+</div>

@@ -1,11 +1,29 @@
-<h1>Companies</h1>
-<%= link_to 'New Company', new_company_path %>
+<div class="container mt-4">
+  <h3 class="mb-4">Companies</h3>
+  <%= link_to 'New Company', new_company_path, class: 'btn btn-primary mb-3' %>
 
-<ul>
-  <% @companies.each do |company| %>
-    <li>
-      <%= link_to company.name, company_path(company) %>
-      (Employees: <%= company.employee_count %>, Reimbursement Total: <%= company.reimbursement_sum %>)
-    </li>
-  <% end %>
-</ul>
+  <div class="table-responsive">
+    <table class="table table-bordered table-striped">
+      <thead class="thead-dark">
+        <tr>
+          <th>Company Name</th>
+          <th>Employee Count</th>
+          <th>Reimbursement Total</th>
+          <th>Details</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @companies.each do |company| %>
+          <tr>
+            <td><%= link_to company.name, company_path(company), class: 'text-decoration-none' %></td>
+            <td><%= company.employee_count %></td>
+            <td><%= company.total_reimbursement_claims %></td>
+            <td>
+              <%= link_to 'View', company_path(company), class: 'btn btn-info btn-sm' %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,13 +1,17 @@
-<h1><%= @company.name %></h1>
-<p>Employees: <%= @company.employee_count %></p>
-<p>Reimbursement Total: <%= @company.reimbursement_sum %></p>
+<div class="container mt-4">
+  <h3 class="mb-4"><%= @company.name %></h3>
+  
+  <p class="lead">Employees: <%= @company.employee_count %></p>
+  <p class="lead">Reimbursement Total: <%= @company.total_reimbursement_claims %></p>
 
-<h2>Employees</h2>
-<%= link_to 'Add Employee', new_company_employee_path(@company) %>
-<ul>
-  <% @company.employees.each do |employee| %>
-    <li>
-      <%= link_to employee.name, company_employee_path(@company, employee) %>
-    </li>
-  <% end %>
-</ul>
+  <h2 class="mt-5">Employees</h2>
+  <%= link_to 'Add Employee', new_company_employee_path(@company), class: 'btn btn-success mb-3' %>
+  
+  <ul class="list-group">
+    <% @company.employees.each do |employee| %>
+      <li class="list-group-item">
+        <%= link_to employee.name, company_employee_path(@company, employee), class: 'text-decoration-none' %>
+      </li>
+    <% end %>
+  </ul>
+</div>

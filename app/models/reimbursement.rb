@@ -1,4 +1,6 @@
 class Reimbursement < ApplicationRecord
   belongs_to :employee
-  delegate :company, to: :employee
+  validates :purpose, presence: true
+  validates :amount, presence: true
+  validates :date_of_expenditure, presence: true
 end

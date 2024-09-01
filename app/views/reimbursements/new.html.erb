@@ -1,24 +1,26 @@
-<h1>New Reimbursement for <%= @employee.name %></h1>
+<div class="container mt-4">
+  <h3 class="mb-4">New Reimbursement for <%= @employee.name %></h3>
 
-<%= form_with model: [@company, @employee, @reimbursement] do |f| %>
-  <div>
-    <%= f.label :purpose, "Purpose" %>
-    <%= f.text_field :purpose %>
-  </div>
-  
-  <div>
-    <%= f.label :amount, "Amount" %>
-    <%= f.number_field :amount %>
-  </div>
-  
-  <div>
-    <%= f.label :date_of_expenditure, "Date of Expenditure" %>
-    <%= f.date_field :date_of_expenditure %>
-  </div>
-  
-  <div>
-    <%= f.submit "Submit Reimbursement" %>
-  </div>
-<% end %>
+  <%= form_with model: [@company, @employee, @reimbursement], local: true, class: 'form' do |f| %>
+    <div class="mb-3">
+      <%= f.label :purpose, "Purpose", class: 'form-label' %>
+      <%= f.text_field :purpose, class: 'form-control', required: true %>
+    </div>
+    
+    <div class="mb-3">
+      <%= f.label :amount, "Amount", class: 'form-label' %>
+      <%= f.number_field :amount, class: 'form-control', required: true %>
+    </div>
+    
+    <div class="mb-3">
+      <%= f.label :date_of_expenditure, "Date of Expenditure", class: 'form-label' %>
+      <%= f.date_field :date_of_expenditure, class: 'form-control', required: true %>
+    </div>
+    
+    <div class="mb-3">
+      <%= f.submit "Submit Reimbursement", class: 'btn btn-primary' %>
+    </div>
+  <% end %>
 
-<%= link_to 'Back to Employee', company_employee_path(@company, @employee) %>
+  <%= link_to 'Back to Employee', company_employee_path(@company, @employee), class: 'btn btn-secondary' %>
+</div>

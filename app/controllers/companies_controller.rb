@@ -1,5 +1,6 @@
 class CompaniesController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_company, only: [:show]
 
   def index
     @companies = Company.all
@@ -19,12 +20,18 @@ class CompaniesController < ApplicationController
   end
 
   def show
-    @company = Company.find(params[:id])
   end
 
   private
+
+  def set_company
+    @company = Company.find(params[:id])
+  rescue ActiveRecord::RecordNotFound
+    redirect_to companies_path, alert: 'Company not found.'
+  end
 
   def company_params
     params.require(:company).permit(:name)
   end
 end
+

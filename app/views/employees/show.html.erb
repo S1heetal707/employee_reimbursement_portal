@@ -1,11 +1,35 @@
-<h1><%= @employee.name %></h1>
-<h2>Reimbursement Claims</h2>
-<%= link_to 'Submit Reimbursement Claim', new_company_employee_reimbursement_path(@company, @employee) %>
-<ul>
-  <% @employee.reimbursements.each do |reimbursement| %>
-    <li>
-      <%= link_to reimbursement.purpose, company_employee_reimbursement_path(@company, @employee, reimbursement) %>
-      - <%= reimbursement.amount %> (on <%= reimbursement.date_of_expenditure %>)
-    </li>
-  <% end %>
-</ul>
+<div class="container mt-4">
+  <h3 class="mb-4"><%= @employee.name %></h3>
+
+  <h3 class="mb-3">Reimbursement Claims</h3>
+
+  <div class="mb-3">
+    <%= link_to 'Submit Reimbursement Claim', new_company_employee_reimbursement_path(@company, @employee), class: 'btn btn-primary me-2' %>
+    <%= link_to 'Back to Company', company_path(@company), class: 'btn btn-secondary' %>
+  </div>
+
+  <div class="table-responsive">
+    <table class="table table-bordered table-striped">
+      <thead class="thead-dark">
+        <tr>
+          <th>Purpose</th>
+          <th>Amount</th>
+          <th>Date of Expenditure</th>
+          <th>Details</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @employee.reimbursements.each do |reimbursement| %>
+          <tr>
+            <td><%= reimbursement.purpose %></td>
+            <td><%= reimbursement.amount %></td>
+            <td><%= reimbursement.date_of_expenditure %></td>
+            <td>
+              <%= link_to 'View Details', company_employee_reimbursement_path(@company, @employee, reimbursement), class: 'btn btn-info btn-sm' %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
