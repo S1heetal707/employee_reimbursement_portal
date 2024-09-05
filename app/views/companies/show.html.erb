@@ -4,9 +4,7 @@
   <p class="lead">Employees: <%= @company.employee_count %></p>
   <p class="lead">Reimbursement Total: <%= @company.total_reimbursement_claims %></p>
 
-  <h2 class="mt-5">Employees</h2>
-  <%= link_to 'Add Employee', new_company_employee_path(@company), class: 'btn btn-success mb-3' %>
-  
+  <h3 class="mt-5">Employees</h3>
   <ul class="list-group">
     <% @company.employees.each do |employee| %>
       <li class="list-group-item">
@@ -14,4 +12,7 @@
       </li>
     <% end %>
   </ul>
+  <br>
+  <%= link_to 'Add Employee', new_company_employee_path(@company), class: 'btn mb-3 main-btn' %>
+  
 </div>
