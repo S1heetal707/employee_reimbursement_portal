@@ -1,0 +1,22 @@
+.main-button .btn:hover {
+  background-color: #ff0d49 !important;
+  border-color: #ff0040 !important;
+}
+
+.navbar-elements .nav-link {
+	color: white !important;
+}
+
+body {
+	    background: linear-gradient(281.74deg, hsla(0, 100%, 91%, .7) 11.33%, rgba(232, 243, 254, .7) 50.36%, rgba(210, 232, 255, .7) 95.82%, rgba(216, 235, 255, .7) 121.5%);
+}
+
+.navbar-brand img {
+    filter: invert(1);
+}
+
+.main-btn {
+	background-color: #f36 !important;
+	border-color: #ff0040 !important;
+	color: white !important;
+}
